@@ -1,9 +1,10 @@
-// require("dotenv").config();
-// var keys = require("./keys.js");
-// var spotify = new Spotify(keys.spotify);
-// var fs = require("fs");
-var moment = require("moment");
+require("dotenv").config();
+var keys = require("./keys.js");
+var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
+var fs = require("fs");
 
+var moment = require("moment");
 var axios = require("axios");
 var comand = process.argv[2];
 var secondComand = process.argv[3];
@@ -14,7 +15,7 @@ switch (comand) {
         break;
 
     case "spotify-this-song":
-        spotifyThis();
+        spotifyThisSong();
         break;
 
     case "movie-this":
@@ -115,13 +116,50 @@ function concertThis() {
 
 }
 
-// do-what-it-says function
-function doWhat(){
-    fs.readFile("random.txt", utf8, function(err,data){
-        if(err)
-        console.log(err);
-        
-    }
+// spotify function
+// var Spotify = require('node-spotify-api');
+
+// var spotify = new Spotify({
+//   id: <your spotify client id>,
+//   secret: <your spotify client secret>
+// });
+
+
+function spotifyThisSong(song) {
+
+    spotify.search({ type: 'track', query: song, limit: 1 }, function (err, data) {
+
+
+        for (var i = 0; i < data.tracks.items.length; i++) {
+            var songData = data.tracks.items[i];
+            console.log(i);
+            console.log("artist(s): " + songData.artists[0].name);
+            console.log("song name: " + songData.name);
+            console.log("preview song: " + songData.preview_url);
+            console.log("album: " + songData.album.name);
+
+        }
+
+        if (secondCommand) {
+            spotifyThisSong(secondCommand);
+        } else {
+            spotifyThisSong("The Sign");
+        }
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+
+    });
+
 }
+
+    // do-what-it-says function
+// function doWhat() {
+//     fs.readFile("random.txt", utf8, function (err, data) {
+//         if (err)
+//             console.log(err);
+
+//     }
+// }
 
 
