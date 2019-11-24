@@ -11,6 +11,7 @@ var secondComand = process.argv[3];
 
 let search = process.argv.slice(3).join(" ");
 console.log(typeof (search))
+
 switch (comand) {
     case "concert-this":
         concertThis(search);
@@ -21,7 +22,7 @@ switch (comand) {
         break;
 
     case "movie-this":
-        movieGet(secondComand);
+        movieGet(search);
         break;
 
     case "do-what-it-says":
@@ -51,9 +52,27 @@ function movieGet(search) {
                 console.log("Language: " + response.data.Language);
                 console.log("Plot: " + response.data.Plot);
                 console.log("Actors: " + response.data.Actors);
-                console.log("=====================End Movie Info===============")
+                console.log("=====================End Movie Info===============");
+
+
+                fs.appendFile("log.txt", "Title of the movie: " + movieName + "," +
+                    "Release Year: " + response.data.Year + " , " +
+                    "IMDB Rating: " + response.data.imdbRating + " , " +
+                    "Rotten Tomatoes Rating: " + response.data.Ratings[1].Value + " , " +
+                    "Country: " + response.data.Country + " , " +
+                    "Language: " + response.data.Language + " , " +
+                    "Plot: " + response.data.Plot + " , " +
+                    "Actors: " + response.data.Actors +
+                    "\n------------------\n", function (error) {
+                        if (error) {
+                            console.log(error);
+                        };
+                    });
 
             })
+
+
+
             .catch(function (error) {
 
                 if (error.response) {
@@ -74,9 +93,10 @@ function movieGet(search) {
                     console.log("Error", error.message);
                 }
                 console.log(error.config);
-
             });
+
     }
+
 
 }
 
@@ -85,8 +105,10 @@ function concertThis(search) {
     let artist = search;
     console.log(artist)
     moment().format();
+
+    // Call Api address to get information by Artist name
+    //the artist name is define as second comand
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
-    // var queryUrl = "https://rest.bandsintown.com/artists/celine+dion/events?app_id=codingbootcamp";
 
     axios.get(queryUrl).then(
         function (response) {
@@ -94,10 +116,21 @@ function concertThis(search) {
                 console.log("Name of The Vanue: " + response.data[0].venue.name);
                 console.log("Venue location: " + response.data[0].venue.city);
                 console.log("Venue Date: " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
-            } else {
+
+                fs.appendFileSync("log.txt", "Name of The Artist: " + artist + " , " + "Name of The Vanue: " + response.data[0].venue.name + " , " +
+                    "Venue location: " + response.data[0].venue.city + " , " +
+                    "Venue Date: " + moment(response.data[0].datetime).format("MM/DD/YYYY") + "\n------------------\n", function (error) {
+                        if (error) {
+                            console.log(error);
+                        };
+                    });
+            }
+            else {
                 console.log(`It would appear as though ${search} is not on tour.`)
             }
+
         })
+
         .catch(function (error) {
             if (error.response) {
                 // The request was made and the server responded with a status code
@@ -121,19 +154,14 @@ function concertThis(search) {
 
 }
 
-// spotify function
-// var Spotify = require('node-spotify-api');
 
-// var spotify = new Spotify({
-//   id: <your spotify client id>,
-//   secret: <your spotify client secret>
-// });
-
-
+//this function for spotify 
 function spotifyThisSong(song) {
     // Check if the command is there. If it is not, use the sign
+    //the sign song has two name The sign and the happy nation/if we chose the sign it will
+    //give other singers not Ace of Base/that`s why I chose Happy nation
     if (!song) {
-        song = "The Sign"
+        song = "happy nation"
     }
 
     spotify.search({ type: 'track', query: song, limit: 1 }, function (err, data) {
@@ -146,10 +174,15 @@ function spotifyThisSong(song) {
             console.log("preview song: " + songData.preview_url);
             console.log("album: " + songData.album.name);
 
+            fs.appendFileSync("log.txt", "Name of The Song: " + song + " , " + "artist(s): " + songData.artists[0].name + " , " +
+                "song name: " + songData.name + " , " +
+                "preview song: " + songData.preview_url + " , " + "album: " + songData.album.name + "\n------------------\n", function (error) {
+                    if (error) {
+                        console.log(error);
+                    };
+                });
+
         }
-
-
-
         if (err) {
             return console.log('Error occurred: ' + err);
         }
@@ -158,13 +191,19 @@ function spotifyThisSong(song) {
 
 }
 
-    // do-what-it-says function
-// function doWhat() {
-//     fs.readFile("random.txt", utf8, function (err, data) {
-//         if (err)
-//             console.log(err);
+// do-what-it-says function
+function doWhat() {
+    //Read random.txt file
+    // running the readFile module that's inside of fs
+    // stores the read information into the variable "data"
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (!error);
+        var txt = data.split(',');
 
-//     }
-// }
+        spotifyThisSong(txt[1]);
+        movieGet(txt[3]);
+        concertThis(txt[5]);
+    });
+}
 
 

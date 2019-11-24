@@ -1,0 +1,20 @@
+Title of the movie: titanic,Release Year: 1997 , IMDB Rating: 7.8 , Rotten Tomatoes Rating: 89% , Country: USA , Language: English, Swedish, Italian , Plot: A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic. , Actors: Leonardo DiCaprio, Kate Winslet, Billy Zane, Kathy Bates
+------------------
+Title of the movie: the matrix,Release Year: 1999 , IMDB Rating: 8.7 , Rotten Tomatoes Rating: 88% , Country: USA , Language: English , Plot: A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers. , Actors: Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+------------------
+Title of the movie: braveheart,Release Year: 1995 , IMDB Rating: 8.3 , Rotten Tomatoes Rating: 77% , Country: USA , Language: English, French, Latin, Scottish Gaelic, Italian , Plot: When his secret bride is executed for assaulting an English soldier who tried to rape her, William Wallace begins a revolt against King Edward I of England. , Actors: James Robinson, Sean Lawlor, Sandy Nelson, James Cosmo
+------------------
+Name of The Artist: celine dion , Name of The Vanue: United Center , Venue location: Chicago , Venue Date: 12/01/2019
+------------------
+Name of The Artist: madonna , Name of The Vanue: The Wiltern , Venue location: Los Angeles , Venue Date: 11/23/2019
+------------------
+Name of The Artist: lady gaga , Name of The Vanue: LADY GAGA ENIGMA , Venue location: Las Vegas , Venue Date: 12/28/2019
+------------------
+Name of The Song: because i loved you , artist(s): Jae-Ha Yoo , song name: Because I Loved You , preview song: https://p.scdn.co/mp3-preview/bc9bea28796053f8cb4720955fab0efa85a7e9a8?cid=4ff361c426284f7dac5e0da14a99eb1b , album: Spirits
+------------------
+Name of The Song: born this way , artist(s): Lady Gaga , song name: Always Remember Us This Way , preview song: null , album: A Star Is Born Soundtrack (Without Dialogue)
+------------------
+Name of The Song: all by myself , artist(s): Céline Dion , song name: All By Myself , preview song: https://p.scdn.co/mp3-preview/0cb37b13a22e189723511181cc80b6714bb3be1d?cid=4ff361c426284f7dac5e0da14a99eb1b , album: Falling into You
+------------------
+Name of The Song: frozen , artist(s): Idina Menzel , song name: Let It Go - From "Frozen"/Soundtrack Version , preview song: null , album: Frozen (Original Motion Picture Soundtrack / Deluxe Edition)
+------------------
