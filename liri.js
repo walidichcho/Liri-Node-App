@@ -10,7 +10,7 @@ var comand = process.argv[2];
 var secondComand = process.argv[3];
 
 let search = process.argv.slice(3).join(" ");
-console.log(typeof (search))
+// console.log(typeof (search))
 
 switch (comand) {
     case "concert-this":
@@ -168,11 +168,13 @@ function spotifyThisSong(song) {
 
         for (var i = 0; i < data.tracks.items.length; i++) {
             var songData = data.tracks.items[i];
+            console.log("===================Song Info====================")
             console.log(i);
             console.log("artist(s): " + songData.artists[0].name);
             console.log("song name: " + songData.name);
             console.log("preview song: " + songData.preview_url);
             console.log("album: " + songData.album.name);
+            console.log("===================end song Info====================")
 
             fs.appendFileSync("log.txt", "Name of The Song: " + song + " , " + "artist(s): " + songData.artists[0].name + " , " +
                 "song name: " + songData.name + " , " +
@@ -197,12 +199,18 @@ function doWhat() {
     // running the readFile module that's inside of fs
     // stores the read information into the variable "data"
     fs.readFile("random.txt", "utf8", function (error, data) {
-        if (!error);
-        var txt = data.split(',');
+        if (!error) {
 
-        spotifyThisSong(txt[1]);
-        movieGet(txt[3]);
-        concertThis(txt[5]);
+            var txt = data.split(',');
+            console.log(txt)
+            spotifyThisSong(txt[1]);
+
+            movieGet(txt[3]);
+
+            concertThis([5]);
+
+
+        }
     });
 }
 
