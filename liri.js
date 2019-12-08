@@ -10,7 +10,7 @@ var comand = process.argv[2];
 var secondComand = process.argv[3];
 
 let search = process.argv.slice(3).join(" ");
-// console.log(typeof (search))
+
 
 switch (comand) {
     case "concert-this":
@@ -30,7 +30,7 @@ switch (comand) {
         break;
 
 }
-
+//movie function
 function movieGet(search) {
     if (!search) {
         console.log("-----------------------");
@@ -71,10 +71,7 @@ function movieGet(search) {
 
             })
 
-
-
             .catch(function (error) {
-
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
@@ -94,10 +91,7 @@ function movieGet(search) {
                 }
                 console.log(error.config);
             });
-
     }
-
-
 }
 
 //band in Town function
@@ -109,7 +103,6 @@ function concertThis(search) {
     // Call Api address to get information by Artist name
     //the artist name is define as second comand
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
-
     axios.get(queryUrl).then(
         function (response) {
             if (response.data.length) {

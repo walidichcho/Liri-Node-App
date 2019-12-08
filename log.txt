@@ -72,3 +72,9 @@ Title of the movie: "titanic",Release Year: 1997 , IMDB Rating: 7.8 , Rotten Tom
 ------------------
 Name of The Song: "I Want it That Way" , artist(s): Backstreet Boys , song name: I Want It That Way , preview song: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=4ff361c426284f7dac5e0da14a99eb1b , album: The Hits--Chapter One
 ------------------
+Name of The Artist: celine dion , Name of The Vanue: United Center , Venue location: Chicago , Venue Date: 12/01/2019
+------------------
+Name of The Artist: lady gaga , Name of The Vanue: LADY GAGA ENIGMA , Venue location: Las Vegas , Venue Date: 12/28/2019
+------------------
+Name of The Artist: madonna , Name of The Vanue: The Wiltern , Venue location: Los Angeles , Venue Date: 11/24/2019
+------------------
