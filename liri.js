@@ -94,7 +94,7 @@ function movieGet(search) {
     }
 }
 
-//band in Town function
+// band in town function
 function concertThis(search) {
     let artist = search;
     console.log(artist)
