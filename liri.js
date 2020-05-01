@@ -30,7 +30,7 @@ switch (comand) {
         break;
 
 }
-//movie function
+// movie function
 function movieGet(search) {
     if (!search) {
         console.log("-----------------------");
